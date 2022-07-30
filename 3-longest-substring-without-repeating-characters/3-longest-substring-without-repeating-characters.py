@@ -11,5 +11,4 @@ class Solution:
             else:
                 res += i
             m = max(m, len(res))
-            print(res)
         return (m)

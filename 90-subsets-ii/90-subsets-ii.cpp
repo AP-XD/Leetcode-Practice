@@ -18,7 +18,7 @@ public:
         sub(0,nums,temp,ans1);
         for(auto i:ans1)
         {
-ans.push_back(i);}
+        ans.push_back(i);}
         return ans;
     }
 };

@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int maxp=0,minp=1e5;
+        int maxp=0,minp=1e4;
         for(auto i :prices)
         {
             minp=min(minp,i);

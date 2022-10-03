@@ -2,7 +2,7 @@ class Solution {
 public:
     int minCost(string col, vector<int>& nt) {
         int ans=0;
-        for(int i=0;i<col.size();i++)
+        for(int i=0;i<col.size()-1;i++)
         {
             if(col[i]==col[i+1])    
             {

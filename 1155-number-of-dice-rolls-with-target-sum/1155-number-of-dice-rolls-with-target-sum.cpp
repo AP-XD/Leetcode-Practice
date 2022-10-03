@@ -11,7 +11,7 @@ public:
         
         for(int i=1;i<=k;i++)
         {
-            if(i<=target)ans+=find(n,ind+1,k,target-i,dp);
+            ans+=find(n,ind+1,k,target-i,dp);
         }
         return dp[ind][target]=ans%mod;
     }

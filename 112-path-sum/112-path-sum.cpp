@@ -17,7 +17,6 @@ public:
         t-=root->val;
         if( root->left==nullptr && root->right==nullptr)
             return t==0;
-        
         return hasPathSum(root->left,t) || hasPathSum(root->right,t);
         
     }

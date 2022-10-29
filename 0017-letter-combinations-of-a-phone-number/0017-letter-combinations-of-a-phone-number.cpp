@@ -16,7 +16,6 @@ public:
     }
     void travel(string d,map<int,string>mp, vector<string>&ans,int i=0,string curr="")
     {
-        if(i>d.length()-1)return;
         if(i==d.length()-1)
         {
             for(int k=0;k<mp[d[i]-'0'].length();k++)
@@ -28,8 +27,6 @@ public:
         for(int k=0;k<mp[d[i]-'0'].length();k++)
             {
                  travel(d,mp,ans,i+1,curr+mp[d[i]-'0'][k]);
-            }
-       
-        
+            }        
     }
 };

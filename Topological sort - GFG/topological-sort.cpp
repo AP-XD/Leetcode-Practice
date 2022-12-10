@@ -6,34 +6,67 @@ using namespace std;
 class Solution
 {
 	public:
-	void dfs(int node,vector<int>&vis,vector<int> adj[],stack<int>&st)
-	{
-	    vis[node]=1;
-	    for(auto it:adj[node])
-	    {
-	        if(!vis[it])dfs(it,vis,adj,st);
-	    }
-	    st.push(node);
-	}
-	//Function to return list containing vertices in Topological order. 
-	vector<int> topoSort(int V, vector<int> adj[]) 
-	{
-	    vector<int>vis(V,0);
-	    stack<int>st;
-	    for(int i=0;i<V;i++)
-	    {
-	        if(!vis[i])dfs(i,vis,adj,st);
-	    }
-	    vector<int>ans;
-	    while(!st.empty())
-	    {
-	        ans.push_back(st.top());
-	        st.pop();
-	    }
-	    return ans;
+// 	void dfs(int node,vector<int>&vis,vector<int> adj[],stack<int>&st)
+// 	{
+// 	    vis[node]=1;
+// 	    for(auto it:adj[node])
+// 	    {
+// 	        if(!vis[it])dfs(it,vis,adj,st);
+// 	    }
+// 	    st.push(node);
+// 	}
+// 	//Function to return list containing vertices in Topological order. 
+// 	vector<int> topoSort(int V, vector<int> adj[]) 
+// 	{
+// 	    vector<int>vis(V,0);
+// 	    stack<int>st;
+// 	    for(int i=0;i<V;i++)
+// 	    {
+// 	        if(!vis[i])dfs(i,vis,adj,st);
+// 	    }
+// 	    vector<int>ans;
+// 	    while(!st.empty())
+// 	    {
+// 	        ans.push_back(st.top());
+// 	        st.pop();
+// 	    }
+// 	    return ans;
 	    
-	    // code here
-	}
+// 	    // code here
+// 	}
+    vector<int> topoSort(int V, vector<int> adj[]) 
+    {
+        vector<int> ind(V,0);
+        for(int i=0;i<V;i++){
+            
+            for(int j:adj[i]){
+                ind[j]++;
+            }
+        }
+        
+        queue<int> q;
+        
+        for(int i=0;i<V;i++){
+            if(ind[i]==0) q.push(i);
+        }
+        
+        vector<int> topo;
+        
+        while(!q.empty()){
+            int node = q.front();
+            q.pop();
+            topo.push_back(node);
+            for(auto it:adj[node]){
+                ind[it]--;
+                if(ind[it]==0) q.push(it);
+            }
+        }
+        
+        return topo;
+            
+            
+        }
+    
 };
 
 //{ Driver Code Starts.

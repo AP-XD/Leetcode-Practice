@@ -7,23 +7,46 @@ class Solution:
     def isCyclic(self, V, adj):
         # code here
         
-        pathvis=[0]*V
-        vis=[0]*V
-        def dfs(node):
-            vis[node]=1
-            pathvis[node]=1
-            for i in adj[node]:
-                if not vis[i]:
-                    if(dfs(i)):
-                        return True
-                elif pathvis[i]:
-                    return True
-            pathvis[node]=0
-            return False
+        # pathvis=[0]*V
+        # vis=[0]*V
+        # def dfs(node):
+        #     vis[node]=1
+        #     pathvis[node]=1
+        #     for i in adj[node]:
+        #         if not vis[i]:
+        #             if(dfs(i)):
+        #                 return True
+        #         elif pathvis[i]:
+        #             return True
+        #     pathvis[node]=0
+        #     return False
+        # for i in range(V):
+        #     if dfs(i)==True:
+        #         return True
+        # return False
+        
+        # TOPO
+        
+        ind=[0]*V
+        q=[]
+        
         for i in range(V):
-            if dfs(i)==True:
-                return True
-        return False
+            for j in adj[i]:
+                ind[j]+=1
+        for i in range(V):
+            if ind[i]==0:
+                q.append(i)
+        stack=[] 
+        while q:
+            node=q.pop(0)
+            stack.append(node)
+            for i in adj[node]:
+                ind[i]-=1
+                if ind[i]==0:
+                    q.append(i)
+        if len(stack)==V:
+            return False
+        return True
 
 
 #{ 

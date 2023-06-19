@@ -3,7 +3,7 @@ class Solution:
     def canFinish(self, V: int, prerequisites: List[List[int]]) -> bool:
         
 
-        adj = defaultdict(list)
+        adj = [[] for i in range(V)]
         for i in prerequisites:
             adj[i[0]].append(i[1])
         ind=[0]*V

@@ -1,4 +1,3 @@
-from collections import defaultdict
 class Solution:
     def canFinish(self, V: int, prerequisites: List[List[int]]) -> bool:
         

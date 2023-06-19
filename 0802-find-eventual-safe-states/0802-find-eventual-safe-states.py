@@ -11,10 +11,8 @@ class Solution:
             for i in adj[node]:
                 if not vis[i]:
                     if(dfs(i)):
-                        check[node]=0
                         return True
                 elif pathvis[i]:
-                    check[node]=0
                     return True
             check[node]=1
             pathvis[node]=0

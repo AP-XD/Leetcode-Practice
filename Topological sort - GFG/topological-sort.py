@@ -2,23 +2,42 @@ class Solution:
     
     #Function to return list containing vertices in Topological order.
     def topoSort(self, V, adj):
-        # Code here
-        vis=[0]*V
-        stack=[]
-        def dfs(node):
-            vis[node]=1
-            for i in adj[node]:
-                if not vis[i]:
-                    dfs(i)
-            stack.append(node)
+        # # Code here
+        # vis=[0]*V
+        # stack=[]
+        # def dfs(node):
+        #     vis[node]=1
+        #     for i in adj[node]:
+        #         if not vis[i]:
+        #             dfs(i)
+        #     stack.append(node)
         
+        # for i in range(V):
+        #     if not vis[i]:
+        #         dfs(i)
+        # ans=[]
+        # while stack:
+        #     ans.append(stack.pop())
+        # return ans
+        
+        ind=[0]*V
         for i in range(V):
-            if not vis[i]:
-                dfs(i)
+            for j in adj[i]:
+                ind[j]+=1
+        q=[]
         ans=[]
-        while stack:
-            ans.append(stack.pop())
+        for i in range(V):
+            if ind[i]==0:
+                q.append(i)
+        while q:
+            node=q.pop(0)
+            ans.append(node)
+            for i in adj[node]:
+                ind[i]-=1
+                if ind[i]==0:
+                    q.append(i)
         return ans
+        
 #{ 
  # Driver Code Starts
 # Driver Program

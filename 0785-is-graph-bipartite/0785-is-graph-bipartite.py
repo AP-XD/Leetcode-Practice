@@ -1,29 +1,21 @@
 class Solution:
     
     
-    def isBipartite(self, graph: List[List[int]]) -> bool:
-        n=len(graph)
-        m=len(graph[0])
-        color=[-1]*n
-        def check(start):
-            q=[]
-            n=len(graph)
-            m=len(graph[0])
-
-            color[start]=0
-            q.append(start)
-            while q:
-                node=q.pop(0)
-                for i in graph[node]:
-                    if color[i]==-1:
-                        color[i]= not(color[node])
-                        q.append(i)
-                    elif color[i]==color[node]:
-                        return False
+    def isBipartite(self, adj: List[List[int]]) -> bool:
+        V=len(adj)
+        color=[-1]*V
+        def dfs(node,col):
+            color[node]=col
+            for k in adj[node]:
+                if color[k]==-1:
+                    if dfs(k,not(col))==False:
+                         return False
+                elif color[k]==col:
+                    return False
             return True
-        for i in range(n):
+        for i in range(V):
             if color[i]==-1:
-                if not check(i):
+                if(dfs(i,0)==False):
                     return False
         return True
         

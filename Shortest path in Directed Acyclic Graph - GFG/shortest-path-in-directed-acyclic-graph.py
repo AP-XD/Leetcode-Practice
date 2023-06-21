@@ -6,10 +6,10 @@ class Solution:
     def shortestPath(self, n : int, m : int, edges : List[List[int]]) -> List[int]:
         adj=[[] for _ in range(n)]
         for i in range(m):
-                u=edges[i][0]
-                v=edges[i][1]
-                wt=edges[i][2]
-                adj[u].append([v,wt])
+            u=edges[i][0]
+            v=edges[i][1]
+            w=edges[i][2]
+            adj[u].append([v,w])
         vis=[0]*n
         stack=[]
         def dfs(node):
@@ -17,10 +17,12 @@ class Solution:
             for i,w in adj[node]:
                 if not vis[i]:
                     dfs(i)
+            
             stack.append(node)
         for i in range(n):
             if not vis[i]:
                 dfs(i)
+            
         dist=[1e9 for _ in range(n)]
         dist[0]=0
         while stack:
@@ -28,13 +30,11 @@ class Solution:
             for i,w in adj[node]:
                 if dist[node]+w<dist[i]:
                     dist[i]=dist[node]+w
-        k=1e9
-        for i in range(n):
-            if dist[i]==k:
+            
+        for i in range (n):
+            if dist[i]==1e9:
                 dist[i]=-1
         return dist
-        
-        
         pass
 
 

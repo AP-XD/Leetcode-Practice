@@ -29,8 +29,13 @@ class Solution
                 int n=i[0];
                 int w=i[1];
                 if(d+w<dist[n])
-                {dist[n]=d+w;
-                s.insert({d+w,n});}
+                {
+                    if(dist[n]!=1e9)
+                        s.erase({dist[n],n});
+                    dist[n]=d+w;
+                    s.insert({d+w,n});
+                    
+                }
             }
         }
         return dist;

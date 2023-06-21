@@ -1,7 +1,9 @@
 class Solution:
-	def wordLadderLength(self, startWord, targetWord, wordList):
+	def wordLadderLength(self, startWord, targetWord, wordlist):
 		#Code here
 		q=[]
+		
+        wordList=set(wordlist)
 		q.append([startWord,1])
 		if startWord in wordList:
             wordList.remove(startWord)

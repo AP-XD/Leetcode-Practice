@@ -12,7 +12,6 @@ class Solution:
         q.append([startWord])
         usedlevel.append(startWord)
         while q:
-            # print(q)
             vec=q.pop(0)
             
             if len(vec)>level:
@@ -22,9 +21,7 @@ class Solution:
                         wordlist.remove(i)
                 usedlevel.clear()
             word=vec[-1]
-            # print(vec)
             if word==targetWord:
-                # print(1)
                 if not ans:
                     ans.append(vec)
                 elif len(ans[0])==len(vec):
@@ -34,14 +31,11 @@ class Solution:
                 # print(vec)
                 for ch in "abcdefghijklmnopqrstuvwxyz":
                     w=word[:i]+ch+word[i+1:]
-                    # print(w)
                     if w in wordlist:
-                        vec2=copy.deepcopy(vec)
-                        vec2.append(w)
-                        q.append(vec2)
-                        # print(q)
+                        vec.append(w)
+                        q.append(vec[:])
                         usedlevel.append(w)
-                        
+                        vec.pop()
                 word=oword
         return ans
 #{ 

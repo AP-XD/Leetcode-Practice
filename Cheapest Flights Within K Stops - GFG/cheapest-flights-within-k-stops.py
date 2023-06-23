@@ -19,7 +19,7 @@ class Solution:
             if stops>k:
                 continue
             for adjnode,weight in adj[node]:
-               if weight+d<dist[adjnode]  and stops<=k:
+               if weight+d<dist[adjnode] :
                    dist[adjnode]=weight+d
                    q.append([stops+1,adjnode,dist[adjnode]])
         if dist[dst]==1e9:

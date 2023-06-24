@@ -26,14 +26,12 @@ class Solution {
         priority_queue<pair<ll,ll>, vector<pair<ll,ll>>, greater<pair<ll,ll>>>pq;
         pq.push({0,0});
         ll mod=(ll)(1e9+7);
-        while(!pq.empty())
-        {
+        while(!pq.empty()){
             d=pq.top().first;
             node=pq.top().second;
             pq.pop();
             for(auto i:adj[node])
             {
-                
                 adjnode=i.first;
                 edw=i.second;
                 if(d+edw<dist[adjnode])
@@ -41,13 +39,13 @@ class Solution {
                     dist[adjnode]=d+edw;
                     pq.push({dist[adjnode],adjnode});
                     ways[adjnode]=ways[node];
-                }
-                else if(d+edw==dist[adjnode])
+                }else if(d+edw==dist[adjnode])
                 {
                     ways[adjnode]=(ways[adjnode]+ways[node])%mod;
                 }
             }
         }
+        
         return ways[n-1]%mod;
     }
 };

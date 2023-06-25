@@ -12,7 +12,7 @@ class Solution:
 
         dist=[int(1e8)]*n
         dist[S]=0
-        for i in range(n):
+        for i in range(n-1):
             for i in roads:
                 u=i[0]
                 v=i[1]

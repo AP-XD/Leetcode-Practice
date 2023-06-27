@@ -63,6 +63,6 @@ void unionSet(int parent[],int X,int Z)
 	int ulp_x,ulp_z;
 	ulp_x=find(parent,X);
 	ulp_z=find(parent,Z);
-// 	if(ulp_x==ulp_z)return;
+	if(ulp_x==ulp_z)return;
 	parent[ulp_x]=ulp_z;
 }

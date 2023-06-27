@@ -53,7 +53,6 @@ int main(){
 int find(int parent[],int X)
 {
        if(parent[X]==X)return X;
-       else
        return parent[X]=find(parent,parent[X]);
 }
 void unionSet(int parent[],int X,int Z)

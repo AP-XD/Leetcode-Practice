@@ -34,21 +34,6 @@ int main(){
 }
 // } Driver Code Ends
 
-// class DisjointSet
-// {
-//     vector<int>parent,size;
-//     public:
-//     DisjointSet(int n)
-//     {
-//         parent.resize(n+1);
-//         size.resize(n+1);
-//         for(int i=0;i<=n;i++)
-//         {
-//             parent[i]=i;
-//             size[i]=1;
-//         }
-//     }
-// };
 /*Complete the functions below*/
 int find(int parent[],int X)
 {

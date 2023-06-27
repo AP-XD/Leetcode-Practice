@@ -49,18 +49,15 @@ int main(){
 //         }
 //     }
 // };
-/*Complete the functions below*/
-int find(int parent[],int X)
+
+int find(int A[],int X)
 {
-       if(parent[X]==X)
-       {
-           return X;
-       }
-       return parent[X] = find(parent,parent[X]);
+  if(A[X] == X)return X;
+  return A[X]= find(A,A[X]);
 }
-void unionSet(int parent[],int X,int Z)
+void unionSet(int A[],int X,int Z)
 {
-	int a = find(parent,X);
-	int B = find(parent,Z);
-	parent[a] = parent[B];
+    int UX = find(A,X);
+    int UZ = find(A,Z);
+    A[UX] = UZ;
 }

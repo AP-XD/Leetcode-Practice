@@ -50,17 +50,9 @@ int main(){
 //     }
 // };
 /*Complete the functions below*/
-// int find(int parent[],int X)
-// {
-//       if(parent[X]==X)
-//       return X;
-//       else
-//       return parent[X] = find(parent,parent[X]);
-// }
 int find(int parent[],int X)
 {
-       if(parent[X]==X)
-       return X;
+       if(parent[X]==X)return X;
        else
        return parent[X]=find(parent,parent[X]);
 }
